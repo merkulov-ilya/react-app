@@ -3,6 +3,45 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 `npx create-react-app react-app --template typescript`
 
+## Prettier
+
+```shell
+npm install --save-dev --save-exact prettier
+
+cat <<END > .prettierrc.json
+{
+  "singleQuote": true,
+  "printWidth": 120
+}
+END
+
+cat <<END > .prettierignore
+node_modules
+package-lock.json
+coverage
+.parcel-cache
+dist
+.idea
+.vscode
+build
+END
+
+mkdir .vscode
+cat <<END > .vscode/settings.json
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
+}
+END
+```
+
+```
+# package.json
+# scripts:
++ "format:check": "prettier --check .",
++ "format": "prettier --write .",
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
