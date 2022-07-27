@@ -42,6 +42,56 @@ END
 + "format": "prettier --write .",
 ```
 
+## ESLint
+
+```shell
+npm init @eslint/config
+# problems esm react TypeScript browser JSON
+npm i -D eslint-config-prettier eslint-plugin-prettier
+```
+
+```json5
+// .eslintrc.json
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    // "plugin:react/recommended",
+    "react-app",
+    // "react-app/jest",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    // "react",
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "rules": {}
+}
+```
+
+```
+# package.json
+
+- eslintConfig
+
+# scripts:
++ "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
++ "lint:fix": "eslint src --fix --ext .js,.jsx,.ts,.tsx",
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
