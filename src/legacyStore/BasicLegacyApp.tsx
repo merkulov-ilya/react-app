@@ -6,13 +6,13 @@ import { store } from './index';
 // store.subscribe(() => console.log(store.getState()));
 
 function BasicLegacyApp() {
-  const [value, setValue] = useState(store.getState().value);
+  const [value, setValue] = useState(store.getState().counter.value);
 
   useEffect(() => {
     // store.subscribe(() => setValue(store.getState().value));
     store.subscribe(() => {
       // console.log('call store listener');
-      setValue(store.getState().value);
+      setValue(store.getState().counter.value);
     });
   }, []);
 

@@ -3,7 +3,7 @@ import { store } from './index';
 
 function App() {
   const dispatch = useDispatch();
-  const value = useSelector<{ value: number }, number>((state) => state.value);
+  const value = useSelector<ReturnType<typeof store.getState>, number>((state) => state.counter.value);
 
   //  Number(prompt('How many?'))
   return (
