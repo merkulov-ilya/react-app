@@ -1,4 +1,5 @@
 import { createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 // function counterReducer(state = { value: 0 }, action: Action<string> & { payload: number }) {
 function counterReducer(state = { value: 0 }, action: { type: string; payload?: number }) {
@@ -13,4 +14,4 @@ function counterReducer(state = { value: 0 }, action: { type: string; payload?: 
 }
 
 // export const store = createStore((s) => s);
-export const store = createStore(counterReducer);
+export const store = createStore(counterReducer, composeWithDevTools());
